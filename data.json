@@ -1,0 +1,20 @@
+{
+    "csv_timelock": {
+        "inputs": {
+            "keys": {
+                "pub_key": false,
+                "priv_key": false
+            },
+            "timelock": {
+                "block_height": false
+            },
+            "p2pkh_address": false
+        },
+        "outputs": {
+            "p2sh_address": false,
+            "csv_hash": false,
+            "tx_id": false,
+            "tx_signed": false
+        }
+    }
+}
