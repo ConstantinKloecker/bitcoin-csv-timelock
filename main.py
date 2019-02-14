@@ -192,7 +192,7 @@ def create_csv_script_p2sh(recreate=False):
     
     returns
     -------
-    if recreate=False (default - used when creating new p2sh addres)
+    if recreate=False (default - used when creating new p2sh address)
         returns nothing
         - writes p2sh address into data.json
         - displays p2sh address to the user
@@ -269,11 +269,6 @@ def create_csv_spending_transaction():
         sig = priv_key.sign_input(tx, i, csv_script)
         txin.script_sig = Script([sig, pub_key, csv_script.to_hex()])
     tx_signed, tx_id = tx.serialize(), tx.get_txid()
-    """
-    The issue is that you do not set the public key when setting the script_sig 
-    (line 265). You need the script (which you have) and the P2PKH unlocking 
-    script (which is sig plus pubkey).
-    """
 
     # writes tx_id into data.json and displays tx_signed (+details) to the user
     update_data_json({'tx_id': tx_id, 'tx_signed': tx_signed})
