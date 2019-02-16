@@ -15,6 +15,7 @@ if __name__ == '__main__':
     # installing modules
     print('Installing dependencies ...\n')
     os.system(f'{activate_venv} && pip3 install requests')
+    # TODO specify version via pypi
     os.system(f'{activate_venv} && pip3 install git+git://github.com/karask/python-bitcoin-utils')
 
     # testing project environment
@@ -42,11 +43,15 @@ if __name__ == '__main__':
     else:
         print('----------------------------')
         print('\nProject environment setup complete. You are ready to go!')
-        print(' - configure data.json with relevant user inputs.')
+        print(' - configure data.json (automatically or manually)')
         print(' - activate venv: $ source ./venv/bin/activate\n')
         print('Finally, run the program as follows:')
         print('------------------------------------')
+        print('- To automatically configure data.json:')
+        print('  $ python3 main.py config_data\n')
         print('- To create a p2sh address:')
         print('  $ python3 main.py create_p2sh\n')
+        print('- To fill the p2sh address with BTC:')
+        print('  $ python3 main.py p2sh_fill\n')
         print('- To spend from p2sh address:')
         print('  $ python3 main.py spend_p2sh\n')
