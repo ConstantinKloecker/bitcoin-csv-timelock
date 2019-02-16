@@ -39,30 +39,30 @@ should only be used on the Bitcoin testnet !!!**
     $ source ./venv/bin/activate
     $ python3 main.py config_data
 
-- inserts a priv_key queried from bitcoin-cli
-- inserts a p2pkh address queried from bitcoin-cli
-- inserts a block_lock randomly chosen between 1-10 blocks
+- inserts a `priv_key` queried from bitcoin-cli
+- inserts a `p2pkh address` queried from bitcoin-cli
+- inserts a `block_lock` randomly chosen between 100-400 blocks
 
 #### 2.2 Alternatively, manually configure data.json
 
 #### 2.2.1 keys: pub_key (hex) or priv_key (wif)
 
-- eg. pub_key: "023e17859419f46552bc0a5856ff8f7f523b7e877ec8bde3fd53334a5b13a14fae"
-- eg. priv_key: "cUD74njAVhJAsCV1Npg9zY2fCPFTFe6pfJ6nPAEweBMBjP9ZenZs"
+- eg. `pub_key`: "023e17859419f46552bc0a5856ff8f7f523b7e877ec8bde3fd53334a5b13a14fae"
+- eg. `priv_key`: "cUD74njAVhJAsCV1Npg9zY2fCPFTFe6pfJ6nPAEweBMBjP9ZenZs"
 
     If both keys are provided, the program defaults to using priv_key. The priv_key 
 must be included in order to spend from the P2SH address.
 
 #### 2.2.2 timelock: block_lock (int)
 
-- eg. block_lock: 200
+- eg. `block_lock`: 200
 
     Be aware, not all block height values work succesfully with the converting library,
     values between 100-400 seem to work.
 
-#### 2.2.3 p2pkh_address: for spending script
+#### 2.2.3 `p2pkh_address`: for spending script
 
-- eg. p2pkh_address: "mttbFoMwL3g4Y3UTfMin19hx2x9i94nE7D"
+- eg. `p2pkh_address`: "mttbFoMwL3g4Y3UTfMin19hx2x9i94nE7D"
 
 
 -----
@@ -72,7 +72,7 @@ must be included in order to spend from the P2SH address.
     $ python3 main.py p2sh_create
 
 - creates a new P2SH address with csv script
-- adddress & script hash is displayed in terminal and saved in data.json
+- `p2sh_address` & `script_hash` is displayed in terminal and saved in `data.json`
 
 
 -----
@@ -91,7 +91,7 @@ must be included in order to spend from the P2SH address.
 
     $ bitcoin-cli generate <timelock>
 
-#### 4.2.1 Alternatively, wait for UTXOs to be confirmned anough times to satisfy the timelock:
+#### 4.2.2 Alternatively, wait for UTXOs to be confirmned anough times to satisfy the timelock:
 
     Grab a coffe and wait :)
 
@@ -104,7 +104,7 @@ must be included in order to spend from the P2SH address.
 
 - creates a transaction that spends all UTXOs of P2SH address,
 - broadcasts the transaction via bitcoin-cli
-- tx_id & tx_signed is displayed in terminal and saved in data.json
+- `tx_id` & `tx_signed` is displayed in terminal and saved in `data.json`
 
     Note: The program assumes that the UTXOs send to the P2SH address were
 created/signed/broadcasted from the locally running bitcoin client, this 
