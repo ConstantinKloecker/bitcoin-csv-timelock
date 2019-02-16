@@ -147,7 +147,7 @@ def config_data():
         print('\nError: Invalid P2PKH_address from local client, please configure manually\n')
         raise SystemExit
 
-    timelock = randint(1, 10)
+    timelock = randint(100, 400)
 
     update_data_json(inputs={'priv_key': priv_key, 'block_lock': timelock, 
         'p2pkh_address': p2pkh_addr})
