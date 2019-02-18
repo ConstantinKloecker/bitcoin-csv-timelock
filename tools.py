@@ -13,12 +13,10 @@ from subprocess import Popen, PIPE
 
 import errors
 
-try:
-    from bitcoinutils.keys import P2pkhAddress, PrivateKey, PublicKey
-    from bitcoinutils.constants import TYPE_RELATIVE_TIMELOCK
-    from bitcoinutils.transactions import Sequence
-except ModuleNotFoundError as e:
-        errors.environment(e)
+from bitcoinutils.keys import P2pkhAddress, PrivateKey, PublicKey
+from bitcoinutils.constants import TYPE_RELATIVE_TIMELOCK
+from bitcoinutils.transactions import Sequence
+
 
 def load_data_json(priv=False, pub=False, pub_hash=False, timelock_csv=False, 
     timelock_tx=False, timelock_log=False, p2pk=False):
@@ -147,7 +145,7 @@ def config_data():
         print('\nError: Invalid P2PKH_address from local client, please configure manually\n')
         raise SystemExit
 
-    timelock = randint(100, 400)
+    timelock = randint(1, 20)
 
     update_data_json(inputs={'priv_key': priv_key, 'block_lock': timelock, 
         'p2pkh_address': p2pkh_addr})

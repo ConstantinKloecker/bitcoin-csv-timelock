@@ -5,18 +5,16 @@ P2SH functions
     - fill
     - spend_all
 """
+
 import json
 import requests
 
 import errors
 import tools
 
-try:
-    from bitcoinutils.script import Script
-    from bitcoinutils.keys import P2shAddress
-    from bitcoinutils.transactions import Transaction, TxInput, TxOutput
-except ModuleNotFoundError as e:
-        errors.environment(e)
+from bitcoinutils.script import Script
+from bitcoinutils.keys import P2shAddress
+from bitcoinutils.transactions import Transaction, TxInput, TxOutput
 
 
 def csv_script(recreate=False):

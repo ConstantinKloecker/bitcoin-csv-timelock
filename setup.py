@@ -14,9 +14,7 @@ if __name__ == '__main__':
 
     # installing modules
     print('Installing dependencies ...\n')
-    os.system(f'{activate_venv} && pip3 install requests')
-    # TODO specify version via pypi
-    os.system(f'{activate_venv} && pip3 install git+git://github.com/karask/python-bitcoin-utils')
+    os.system(f'{activate_venv} && pip3 install requests bitcoin-utils==0.2.5')
 
     # testing project environment
     print('\n\nTesting project environment:')

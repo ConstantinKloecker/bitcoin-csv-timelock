@@ -57,9 +57,6 @@ must be included in order to spend from the P2SH address.
 
 - eg. `block_lock`: 200
 
-    Be aware, not all block height values work succesfully with the converting library,
-    values between 100-400 seem to work.
-
 #### 2.2.3 p2pkh_address: for spending script
 
 - eg. `p2pkh_address`: "mttbFoMwL3g4Y3UTfMin19hx2x9i94nE7D"
